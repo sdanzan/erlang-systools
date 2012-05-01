@@ -82,8 +82,7 @@ start_inotify_loop(Monitored, Options, To) ->
     inotify_loop(To, InotifyPort, "kill " ++ SPid).
 
 %% ---------------------------------------------------------------------------
-%% Main loop - listen from an inotify port and
-%% send back messages to creator
+%% Main loop - listen from an inotify port and send back messages to creator.
 inotify_loop(To, InotifyPort, KillCmd) ->
     process_flag(trap_exit, true), % trap exit to be able to cleanup
     inotify_loop(To, InotifyPort, KillCmd, "").
@@ -120,8 +119,7 @@ inotify_loop(To, InotifyPort, KillCmd, PartialLine) ->
     end.
 
 %% ---------------------------------------------------------------------------
-%% Parse a line sent by an inotifywait process and turn it
-%% to an event message.
+%% Parse a line sent by an inotifywait process and turn it to an event message.
 %% -record(inotify, { event, isdir, file, watched })
 parse_inotify_event(Line) ->
     [ Watched, Events, File ] =
@@ -154,8 +152,7 @@ event_manager_loop(Wrapper, Manager) ->
     event_manager_loop(Wrapper, Manager).
 
 %% ---------------------------------------------------------------------------
-%% Parse options to pass to inotifywait, bad options
-%% will trigger an error.
+%% Parse options to pass to inotifywait, bad options will trigger an error.
 parse_options(Options) ->
     try parse_options("-m -q", Options)
     catch throw:bad_option -> erlang:error(badarg, Options) end.
@@ -189,14 +186,14 @@ parse_options_events(Events) ->
 
 %% ---------------------------------------------------------------------------
 %% Launch an external inotifywait process through a port.
-%% Some shell trick is used to get the real (os) pid to be
-%% able to end the external process when need be.
+%% Some shell trick is used to get the real (os) pid to be able to end the
+%% external process when need be.
 inotify_port(Monitored, Options) ->
-    % Arguments to inotifywaiy
+    % Arguments to inotifywait
     Args = parse_options(Options) ++ " --format \"%w|%e|%f\" " ++ Monitored,
 
     % Trick to return the external os pid:
-    % launch through sh -c to echo the pid then exec to inotifywait.
+    % launch through 'sh -c' to echo the pid then exec to inotifywait.
     Command = "sh -c 'echo \"$$\"; exec $0 $*' inotifywait " ++ Args,
 
     Port = open_port({ spawn, Command },
