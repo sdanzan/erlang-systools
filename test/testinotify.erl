@@ -26,7 +26,7 @@ loop(Wrapper) ->
             case Event#inotify.event of
                 access -> io:format("~s was accessed (dir: ~w).~n",
                                     [ Event#inotify.file, Event#inotify.isdir ]);
-                attrib -> io:format("~s metadata was nodified (dir: ~w).~n",
+                attrib -> io:format("~s metadata was modified (dir: ~w).~n",
                                     [ Event#inotify.file, Event#inotify.isdir ]);
                 modify -> io:format("~s was modified (dir: ~w).~n",
                                     [ Event#inotify.file, Event#inotify.isdir ]);
