@@ -194,7 +194,7 @@ inotify_port(Monitored, Options) ->
 
     % Trick to return the external os pid:
     % launch through 'sh -c' to echo the pid then exec to inotifywait.
-    Command = "sh -c 'echo \"$$\"; exec $0 $*' inotifywait " ++ Args,
+    Command = "sh -c 'echo $$; exec $0 $*' inotifywait " ++ Args,
 
     Port = open_port({ spawn, Command },
                      [ { line, 16384 }, stderr_to_stdout, eof ]),
