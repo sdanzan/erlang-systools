@@ -1,4 +1,12 @@
-# Erlang Inotifywait Wrapper
+# Erlang Systools
+
+A collection of utility modules for system related stuff.
+
+* *inotifywait*: a wrapper around the `inotifywait` utility.
+* *pigz*: a wrapper around parallel gzip.
+* *checksum*: checksum over files using md5sum, sha1sum and so on..
+
+## Inotifywait Wrapper
 
 A simple wrapper around Linux *inotify* using `inotifywait` from *inotify-tools*.
 
@@ -10,7 +18,7 @@ to subscribe to events.
 The module should work on any box where `inotifywait` and a standard posix `sh`
 shell are available.
 
-## Flow
+### Flow
 
 `start` spawns a *wrapper* erlang process which will check passed options
 and then spawns a *inotifywait* external process through a plain erlang port
@@ -19,9 +27,15 @@ receives *inotifywait* standard output as messages from the port, parses them
 and sends them forward as structured messages to the process that invoked
 `start` in the first place.
 
-## Why not a custom port written in C or a port driver?
+### Why not a custom port written in C or a port driver?
 
 Because I wanted to experiment with the idea of using a plain port to an external
 process and wanted to keep the code small. Besides there already exists an erlang
 inotify module built around the inotify C API (for instance 
 [there](https://github.com/massemanet/inotify))
+
+## Pigz
+
+## Checksums
+
+Erlang wrapper functions around the `xxxsum` utilities family.
