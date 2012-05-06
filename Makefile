@@ -7,5 +7,8 @@ main:
 test:
 	@$(MAKE) --directory=test
 
+test-verbose:
+	@$(MAKE) --directory=test test-verbose
+
 clean:
 	rm -f ebin/*.beam
