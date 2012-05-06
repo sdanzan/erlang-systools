@@ -4,8 +4,9 @@
 
 quote_test_() ->
     [
-          ?_assertEqual("\\'", shell_utils:quote("'"))
-        , ?_assertEqual("x", shell_utils:quote("x"))
-        , ?_assertEqual("abcdef\\'h\\'jr", shell_utils:quote("abcdef'h'jr"))
-        , ?_assertEqual("", shell_utils:quote(""))
+          { "quote / single", ?_assertEqual("\\'", shell_utils:quote("'")) }
+        , { "quote / none",    ?_assertEqual("x", shell_utils:quote("x")) }
+        , { "quote / multiple", 
+            ?_assertEqual("abcdef\\'h\\'jr", shell_utils:quote("abcdef'h'jr")) }
+        , { "quote / empty", ?_assertEqual("", shell_utils:quote("")) }
     ].

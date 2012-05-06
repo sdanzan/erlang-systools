@@ -12,10 +12,10 @@
 
 checksums_test_() ->
     [
-          { "md5sum",    ?_assertEqual(?TEST_MD5,    checksums:md5sum(?TEST_FILE)) }
-        , { "sha1sum",   ?_assertEqual(?TEST_SHA1,   checksums:sha1sum(?TEST_FILE)) }
-        , { "sha224sum", ?_assertEqual(?TEST_SHA224, checksums:sha224sum(?TEST_FILE)) }
-        , { "sha256sum", ?_assertEqual(?TEST_SHA256, checksums:sha256sum(?TEST_FILE)) }
-        , { "sha384sum", ?_assertEqual(?TEST_SHA384, checksums:sha384sum(?TEST_FILE)) }
-        , { "sha512sum", ?_assertEqual(?TEST_SHA512, checksums:sha512sum(?TEST_FILE)) }
+          { "md5",    ?_assertEqual(?TEST_MD5,    checksums:md5sum(?TEST_FILE)) }
+        , { "sha1",   ?_assertEqual(?TEST_SHA1,   checksums:sha1sum(?TEST_FILE)) }
+        , { "sha224", ?_assertEqual(?TEST_SHA224, checksums:sha224sum(?TEST_FILE)) }
+        , { "sha256", ?_assertEqual(?TEST_SHA256, checksums:sha256sum(?TEST_FILE)) }
+        , { "sha384", ?_assertEqual(?TEST_SHA384, checksums:sha384sum(?TEST_FILE)) }
+        , { "sha512", ?_assertEqual(?TEST_SHA512, checksums:sha512sum(?TEST_FILE)) }
     ].
