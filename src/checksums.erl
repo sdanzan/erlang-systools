@@ -38,8 +38,8 @@ sha512sum(FileName) -> gensum(FileName, "sha512sum").
 %%% --------------------------------------------------------------------------
 %%% Launch a xxxsum utility and get back the result.
 gensum(FileName, Cmd) ->
-    FullCmd = Cmd ++ " " ++ shell_utils:quote(FileName) ++ "; echo$?",
-    case sring:tokens(os:cmd(FullCmd), "\n") of
+    FullCmd = Cmd ++ " " ++ shell_utils:quote(FileName) ++ "; echo $?",
+    case string:tokens(os:cmd(FullCmd), "\n") of
         [ Output, "0" ] -> hd(string:tokens(Output, " "));
         [ Error | _ ]   -> { error, Error }
     end.
