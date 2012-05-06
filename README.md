@@ -36,6 +36,8 @@ inotify module built around the inotify C API (for instance
 
 ## Pigz
 
+Erlang wrapper around `pigz`.
+
 ## Checksums
 
 Erlang wrapper functions around the `xxxsum` utilities family.

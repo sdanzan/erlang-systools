@@ -38,7 +38,7 @@ sha512sum(FileName) -> gensum(FileName, "sha512sum").
 %%% --------------------------------------------------------------------------
 %%% Launch a xxxsum utility and get back the result.
 gensum(FileName, Cmd) ->
-    FullCmd = Cmd ++ " " ++ quote(FileName) ++ "; echo$?",
+    FullCmd = Cmd ++ " " ++ shell_utils:quote(FileName) ++ "; echo$?",
     case sring:tokens(os:cmd(FullCmd), "\n") of
         [ Output, "0" ] -> hd(string:tokens(Output, " "));
         [ Error | _ ]   -> { error, Error }
@@ -73,10 +73,3 @@ md5sum_loop(File, BufferLength, Md5Context) ->
 to_hex(<<N:128/big-unsigned-integer>>) ->
     lists:flatten(io_lib:format("~32.16.0b", [ N ])).
 
-%%% --------------------------------------------------------------------------
-%%% Add ' around a string and escape internal '
-quote(String) ->
-    lists:flatten(lists:map(
-        fun($') -> "\\'";
-           (C)  -> C end,
-        String)).

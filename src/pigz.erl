@@ -56,7 +56,7 @@ process_compression(Cmd, Silent) ->
     receive
         { _, stop } -> ok;
         { From, FileName } ->
-            Command = Cmd ++ quote(FileName),
+            Command = Cmd ++ shell_utils:quote(FileName),
             if Silent =:= false ->
                 error_logger:info_msg("Starting compression: ~s~n", [ Command ]);
                true -> ok
@@ -68,6 +68,3 @@ process_compression(Cmd, Silent) ->
             process_compression(Cmd, Silent)
     end.
 
-%% --------------------------------------------------------------------------
-%% Add ' around a string and escape internal '
-quote(String) -> lists:flatten(lists:map( fun($') -> "\\'"; (C)  -> C end, String)).

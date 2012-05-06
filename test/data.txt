@@ -1,0 +1,330 @@
+                   GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+
+  This version of the GNU Lesser General Public License incorporates
+the terms and conditions of version 3 of the GNU General Public
+License, supplemented by the additional permissions listed below.
+
+  0. Additional Definitions.
+
+  As used herein, "this License" refers to version 3 of the GNU Lesser
+General Public License, and the "GNU GPL" refers to version 3 of the GNU
+General Public License.
+
+  "The Library" refers to a covered work governed by this License,
+other than an Application or a Combined Work as defined below.
+
+  An "Application" is any work that makes use of an interface provided
+by the Library, but which is not otherwise based on the Library.
+Defining a subclass of a class defined by the Library is deemed a mode
+of using an interface provided by the Library.
+
+  A "Combined Work" is a work produced by combining or linking an
+Application with the Library.  The particular version of the Library
+with which the Combined Work was made is also called the "Linked
+Version".
+
+  The "Minimal Corresponding Source" for a Combined Work means the
+Corresponding Source for the Combined Work, excluding any source code
+for portions of the Combined Work that, considered in isolation, are
+based on the Application, and not on the Linked Version.
+
+  The "Corresponding Application Code" for a Combined Work means the
+object code and/or source code for the Application, including any data
+and utility programs needed for reproducing the Combined Work from the
+Application, but excluding the System Libraries of the Combined Work.
+
+  1. Exception to Section 3 of the GNU GPL.
+
+  You may convey a covered work under sections 3 and 4 of this License
+without being bound by section 3 of the GNU GPL.
+
+  2. Conveying Modified Versions.
+
+  If you modify a copy of the Library, and, in your modifications, a
+facility refers to a function or data to be supplied by an Application
+that uses the facility (other than as an argument passed when the
+facility is invoked), then you may convey a copy of the modified
+version:
+
+   a) under this License, provided that you make a good faith effort to
+   ensure that, in the event an Application does not supply the
+   function or data, the facility still operates, and performs
+   whatever part of its purpose remains meaningful, or
+
+   b) under the GNU GPL, with none of the additional permissions of
+   this License applicable to that copy.
+
+  3. Object Code Incorporating Material from Library Header Files.
+
+  The object code form of an Application may incorporate material from
+a header file that is part of the Library.  You may convey such object
+code under terms of your choice, provided that, if the incorporated
+material is not limited to numerical parameters, data structure
+layouts and accessors, or small macros, inline functions and templates
+(ten or fewer lines in length), you do both of the following:
+
+   a) Give prominent notice with each copy of the object code that the
+   Library is used in it and that the Library and its use are
+   covered by this License.
+
+   b) Accompany the object code with a copy of the GNU GPL and this license
+   document.
+
+  4. Combined Works.
+
+  You may convey a Combined Work under terms of your choice that,
+taken together, effectively do not restrict modification of the
+portions of the Library contained in the Combined Work and reverse
+engineering for debugging such modifications, if you also do each of
+the following:
+
+   a) Give prominent notice with each copy of the Combined Work that
+   the Library is used in it and that the Library and its use are
+   covered by this License.
+
+   b) Accompany the Combined Work with a copy of the GNU GPL and this license
+   document.
+
+   c) For a Combined Work that displays copyright notices during
+   execution, include the copyright notice for the Library among
+   these notices, as well as a reference directing the user to the
+   copies of the GNU GPL and this license document.
+
+   d) Do one of the following:
+
+       0) Convey the Minimal Corresponding Source under the terms of this
+       License, and the Corresponding Application Code in a form
+       suitable for, and under terms that permit, the user to
+       recombine or relink the Application with a modified version of
+       the Linked Version to produce a modified Combined Work, in the
+       manner specified by section 6 of the GNU GPL for conveying
+       Corresponding Source.
+
+       1) Use a suitable shared library mechanism for linking with the
+       Library.  A suitable mechanism is one that (a) uses at run time
+       a copy of the Library already present on the user's computer
+       system, and (b) will operate properly with a modified version
+       of the Library that is interface-compatible with the Linked
+       Version.
+
+   e) Provide Installation Information, but only if you would otherwise
+   be required to provide such information under section 6 of the
+   GNU GPL, and only to the extent that such information is
+   necessary to install and execute a modified version of the
+   Combined Work produced by recombining or relinking the
+   Application with a modified version of the Linked Version. (If
+   you use option 4d0, the Installation Information must accompany
+   the Minimal Corresponding Source and Corresponding Application
+   Code. If you use option 4d1, you must provide the Installation
+   Information in the manner specified by section 6 of the GNU GPL
+   for conveying Corresponding Source.)
+
+  5. Combined Libraries.
+
+  You may place library facilities that are a work based on the
+Library side by side in a single library together with other library
+facilities that are not Applications and are not covered by this
+License, and convey such a combined library under terms of your
+choice, if you do both of the following:
+
+   a) Accompany the combined library with a copy of the same work based
+   on the Library, uncombined with any other library facilities,
+   conveyed under the terms of this License.
+
+   b) Give prominent notice with the combined library that part of it
+   is a work based on the Library, and explaining where to find the
+   accompanying uncombined form of the same work.
+
+  6. Revised Versions of the GNU Lesser General Public License.
+
+  The Free Software Foundation may publish revised and/or new versions
+of the GNU Lesser General Public License from time to time. Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.
+
+  Each version is given a distinguishing version number. If the
+Library as you received it specifies that a certain numbered version
+of the GNU Lesser General Public License "or any later version"
+applies to it, you have the option of following the terms and
+conditions either of that published version or of any later version
+published by the Free Software Foundation. If the Library as you
+received it does not specify a version number of the GNU Lesser
+General Public License, you may choose any version of the GNU Lesser
+General Public License ever published by the Free Software Foundation.
+
+  If the Library as you received it specifies that a proxy can decide
+whether future versions of the GNU Lesser General Public License shall
+apply, that proxy's public statement of acceptance of any version is
+permanent authorization for you to choose that version for the
+Library.
+ESNECIL CILBUP LARENEG RESSEL UNG                   
+7002 enuJ 92 ,3 noisreV                       
+
+>/gro.fsf//:ptth< .cnI ,noitadnuoF erawtfoS eerF 7002 )C( thgirypoC 
+seipoc mitabrev etubirtsid dna ypoc ot dettimrep si enoyrevE 
+.dewolla ton si ti gnignahc tub ,tnemucod esnecil siht fo 
+
+
+setaroprocni esneciL cilbuP lareneG resseL UNG eht fo noisrev sihT  
+cilbuP lareneG UNG eht fo 3 noisrev fo snoitidnoc dna smret eht
+.woleb detsil snoissimrep lanoitidda eht yb detnemelppus ,esneciL
+
+.snoitinifeD lanoitiddA .0  
+
+resseL UNG eht fo 3 noisrev ot srefer "esneciL siht" ,niereh desu sA  
+UNG eht fo 3 noisrev ot srefer "LPG UNG" eht dna ,esneciL cilbuP lareneG
+.esneciL cilbuP lareneG
+
+,esneciL siht yb denrevog krow derevoc a ot srefer "yrarbiL ehT"  
+.woleb denifed sa kroW denibmoC a ro noitacilppA na naht rehto
+
+dedivorp ecafretni na fo esu sekam taht krow yna si "noitacilppA" nA  
+.yrarbiL eht no desab esiwrehto ton si hcihw tub ,yrarbiL eht yb
+edom a demeed si yrarbiL eht yb denifed ssalc a fo ssalcbus a gninifeD
+.yrarbiL eht yb dedivorp ecafretni na gnisu fo
+
+na gniknil ro gninibmoc yb decudorp krow a si "kroW denibmoC" A  
+yrarbiL eht fo noisrev ralucitrap ehT  .yrarbiL eht htiw noitacilppA
+dekniL" eht dellac osla si edam saw kroW denibmoC eht hcihw htiw
+."noisreV
+
+eht snaem kroW denibmoC a rof "ecruoS gnidnopserroC laminiM" ehT  
+edoc ecruos yna gnidulcxe ,kroW denibmoC eht rof ecruoS gnidnopserroC
+era ,noitalosi ni deredisnoc ,taht kroW denibmoC eht fo snoitrop rof
+.noisreV dekniL eht no ton dna ,noitacilppA eht no desab
+
+eht snaem kroW denibmoC a rof "edoC noitacilppA gnidnopserroC" ehT  
+atad yna gnidulcni ,noitacilppA eht rof edoc ecruos ro/dna edoc tcejbo
+eht morf kroW denibmoC eht gnicudorper rof dedeen smargorp ytilitu dna
+.kroW denibmoC eht fo seirarbiL metsyS eht gnidulcxe tub ,noitacilppA
+
+.LPG UNG eht fo 3 noitceS ot noitpecxE .1  
+
+esneciL siht fo 4 dna 3 snoitces rednu krow derevoc a yevnoc yam uoY  
+.LPG UNG eht fo 3 noitces yb dnuob gnieb tuohtiw
+
+.snoisreV deifidoM gniyevnoC .2  
+
+a ,snoitacifidom ruoy ni ,dna ,yrarbiL eht fo ypoc a yfidom uoy fI  
+noitacilppA na yb deilppus eb ot atad ro noitcnuf a ot srefer ytilicaf
+eht nehw dessap tnemugra na sa naht rehto( ytilicaf eht sesu taht
+deifidom eht fo ypoc a yevnoc yam uoy neht ,)dekovni si ytilicaf
+:noisrev
+
+ot troffe htiaf doog a ekam uoy taht dedivorp ,esneciL siht rednu )a   
+eht ylppus ton seod noitacilppA na tneve eht ni ,taht erusne   
+smrofrep dna ,setarepo llits ytilicaf eht ,atad ro noitcnuf   
+ro ,lufgninaem sniamer esoprup sti fo trap revetahw   
+
+fo snoissimrep lanoitidda eht fo enon htiw ,LPG UNG eht rednu )b   
+.ypoc taht ot elbacilppa esneciL siht   
+
+.seliF redaeH yrarbiL morf lairetaM gnitaroprocnI edoC tcejbO .3  
+
+morf lairetam etaroprocni yam noitacilppA na fo mrof edoc tcejbo ehT  
+tcejbo hcus yevnoc yam uoY  .yrarbiL eht fo trap si taht elif redaeh a
+detaroprocni eht fi ,taht dedivorp ,eciohc ruoy fo smret rednu edoc
+erutcurts atad ,sretemarap laciremun ot detimil ton si lairetam
+setalpmet dna snoitcnuf enilni ,sorcam llams ro ,srossecca dna stuoyal
+:gniwollof eht fo htob od uoy ,)htgnel ni senil rewef ro net(
+
+eht taht edoc tcejbo eht fo ypoc hcae htiw eciton tnenimorp eviG )a   
+era esu sti dna yrarbiL eht taht dna ti ni desu si yrarbiL   
+.esneciL siht yb derevoc   
+
+esnecil siht dna LPG UNG eht fo ypoc a htiw edoc tcejbo eht ynapmoccA )b   
+.tnemucod   
+
+.skroW denibmoC .4  
+
+,taht eciohc ruoy fo smret rednu kroW denibmoC a yevnoc yam uoY  
+eht fo noitacifidom tcirtser ton od ylevitceffe ,rehtegot nekat
+esrever dna kroW denibmoC eht ni deniatnoc yrarbiL eht fo snoitrop
+fo hcae od osla uoy fi ,snoitacifidom hcus gniggubed rof gnireenigne
+:gniwollof eht
+
+taht kroW denibmoC eht fo ypoc hcae htiw eciton tnenimorp eviG )a   
+era esu sti dna yrarbiL eht taht dna ti ni desu si yrarbiL eht   
+.esneciL siht yb derevoc   
+
+esnecil siht dna LPG UNG eht fo ypoc a htiw kroW denibmoC eht ynapmoccA )b   
+.tnemucod   
+
+gnirud seciton thgirypoc syalpsid taht kroW denibmoC a roF )c   
+gnoma yrarbiL eht rof eciton thgirypoc eht edulcni ,noitucexe   
+eht ot resu eht gnitcerid ecnerefer a sa llew sa ,seciton eseht   
+.tnemucod esnecil siht dna LPG UNG eht fo seipoc   
+
+:gniwollof eht fo eno oD )d   
+
+siht fo smret eht rednu ecruoS gnidnopserroC laminiM eht yevnoC )0       
+mrof a ni edoC noitacilppA gnidnopserroC eht dna ,esneciL       
+ot resu eht ,timrep taht smret rednu dna ,rof elbatius       
+fo noisrev deifidom a htiw noitacilppA eht kniler ro enibmocer       
+eht ni ,kroW denibmoC deifidom a ecudorp ot noisreV dekniL eht       
+gniyevnoc rof LPG UNG eht fo 6 noitces yb deificeps rennam       
+.ecruoS gnidnopserroC       
+
+eht htiw gniknil rof msinahcem yrarbil derahs elbatius a esU )1       
+emit nur ta sesu )a( taht eno si msinahcem elbatius A  .yrarbiL       
+retupmoc s'resu eht no tneserp ydaerla yrarbiL eht fo ypoc a       
+noisrev deifidom a htiw ylreporp etarepo lliw )b( dna ,metsys       
+dekniL eht htiw elbitapmoc-ecafretni si taht yrarbiL eht fo       
+.noisreV       
+
+esiwrehto dluow uoy fi ylno tub ,noitamrofnI noitallatsnI edivorP )e   
+eht fo 6 noitces rednu noitamrofni hcus edivorp ot deriuqer eb   
+si noitamrofni hcus taht tnetxe eht ot ylno dna ,LPG UNG   
+eht fo noisrev deifidom a etucexe dna llatsni ot yrassecen   
+eht gnikniler ro gninibmocer yb decudorp kroW denibmoC   
+fI( .noisreV dekniL eht fo noisrev deifidom a htiw noitacilppA   
+ynapmocca tsum noitamrofnI noitallatsnI eht ,0d4 noitpo esu uoy   
+noitacilppA gnidnopserroC dna ecruoS gnidnopserroC laminiM eht   
+noitallatsnI eht edivorp tsum uoy ,1d4 noitpo esu uoy fI .edoC   
+LPG UNG eht fo 6 noitces yb deificeps rennam eht ni noitamrofnI   
+).ecruoS gnidnopserroC gniyevnoc rof   
+
+.seirarbiL denibmoC .5  
+
+eht no desab krow a era taht seitilicaf yrarbil ecalp yam uoY  
+yrarbil rehto htiw rehtegot yrarbil elgnis a ni edis yb edis yrarbiL
+siht yb derevoc ton era dna snoitacilppA ton era taht seitilicaf
+ruoy fo smret rednu yrarbil denibmoc a hcus yevnoc dna ,esneciL
+:gniwollof eht fo htob od uoy fi ,eciohc
+
+desab krow emas eht fo ypoc a htiw yrarbil denibmoc eht ynapmoccA )a   
+,seitilicaf yrarbil rehto yna htiw denibmocnu ,yrarbiL eht no   
+.esneciL siht fo smret eht rednu deyevnoc   
+
+ti fo trap taht yrarbil denibmoc eht htiw eciton tnenimorp eviG )b   
+eht dnif ot erehw gninialpxe dna ,yrarbiL eht no desab krow a si   
+.krow emas eht fo mrof denibmocnu gniynapmocca   
+
+.esneciL cilbuP lareneG resseL UNG eht fo snoisreV desiveR .6  
+
+snoisrev wen ro/dna desiver hsilbup yam noitadnuoF erawtfoS eerF ehT  
+wen hcuS .emit ot emit morf esneciL cilbuP lareneG resseL UNG eht fo
+yam tub ,noisrev tneserp eht ot tirips ni ralimis eb lliw snoisrev
+.snrecnoc ro smelborp wen sserdda ot liated ni reffid
+
+eht fI .rebmun noisrev gnihsiugnitsid a nevig si noisrev hcaE  
+noisrev derebmun niatrec a taht seificeps ti deviecer uoy sa yrarbiL
+"noisrev retal yna ro" esneciL cilbuP lareneG resseL UNG eht fo
+dna smret eht gniwollof fo noitpo eht evah uoy ,ti ot seilppa
+noisrev retal yna fo ro noisrev dehsilbup taht fo rehtie snoitidnoc
+uoy sa yrarbiL eht fI .noitadnuoF erawtfoS eerF eht yb dehsilbup
+resseL UNG eht fo rebmun noisrev a yficeps ton seod ti deviecer
+resseL UNG eht fo noisrev yna esoohc yam uoy ,esneciL cilbuP lareneG
+.noitadnuoF erawtfoS eerF eht yb dehsilbup reve esneciL cilbuP lareneG
+
+ediced nac yxorp a taht seificeps ti deviecer uoy sa yrarbiL eht fI  
+llahs esneciL cilbuP lareneG resseL UNG eht fo snoisrev erutuf rehtehw
+si noisrev yna fo ecnatpecca fo tnemetats cilbup s'yxorp taht ,ylppa
+eht rof noisrev taht esoohc ot uoy rof noitazirohtua tnenamrep
+.yrarbiL
