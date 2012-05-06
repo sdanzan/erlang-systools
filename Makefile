@@ -1,5 +1,10 @@
-all:
+all: main test
+
+main:
 	@$(MAKE) --directory=src
+
+.PHONY: test
+test:
 	@$(MAKE) --directory=test
 
 clean:
