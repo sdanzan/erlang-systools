@@ -1,6 +1,10 @@
-all: $(notdir $(patsubst %.erl, %.beam, $(wildcard *.erl)))
-	if [ ! -d ../ebin ]; then mkdir ../ebin; fi
-	mv *.beam ../ebin
+SOURCES=$(wildcard *.erl)
+OBJECTS=$(SOURCES:%.erl=../ebin/%.beam)
 
-%.beam: %.erl
-	erlc $<
+all: $(OBJECTS) test
+
+../ebin/%.beam: %.erl
+	erlc -o ../ebin $<
+
+test:
+	erl -noshell -pa ../ebin -eval 'eunit:test("../ebin", [verbose])' -s init stop

@@ -1,6 +1,7 @@
-all: $(notdir $(patsubst %.erl, %.beam, $(wildcard *.erl)))
-	if [ ! -d ../ebin ]; then mkdir ../ebin; fi
-	mv *.beam ../ebin
+SOURCES=$(wildcard *.erl)
+OBJECTS=$(SOURCES:%.erl=../ebin/%.beam)
 
-%.beam: %.erl
-	erlc $<
+all: $(OBJECTS)
+
+../ebin/%.beam: %.erl
+	erlc -o ../ebin $<
