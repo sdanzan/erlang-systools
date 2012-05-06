@@ -3,8 +3,8 @@
 A collection of utility modules for system related stuff.
 
 * *inotifywait*: a wrapper around the `inotifywait` utility.
-* *pigz*: a wrapper around parallel gzip.
-* *checksum*: checksum over files using md5sum, sha1sum and so on..
+* *pigz*: a wrapper around parallel gzip `pigz`.
+* *checksum*: checksum over files using `md5sum`, `sha1sum` and so on..
 
 ## Inotifywait Wrapper
 
@@ -36,7 +36,9 @@ inotify module built around the inotify C API (for instance
 
 ## Pigz
 
-Erlang wrapper around `pigz`.
+Erlang wrapper around the `pigz` program. Setting compression level and degree
+of parallelism are allowed. Wrapping is done through a process waiting for
+compression commands.
 
 ## Checksums
 
