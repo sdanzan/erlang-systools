@@ -9,7 +9,7 @@
 %%% License: LGPLv3
 %%% See: http://www.gnu.org/copyleft/lesser.html
 
--module(inotifywrapper).
+-module(inotifywait).
 -author("Serge Danzanvilliers <serge.danzanvilliers@gmail.com>").
 -export([start/2, start/1,
          start_event_manager/2, start_event_manager/3,
