@@ -1,7 +1,10 @@
 SOURCES=$(wildcard *.erl)
 OBJECTS=$(SOURCES:%.erl=../ebin/%.beam)
 
-all: $(OBJECTS) test
+all: ../ebin $(OBJECTS) test
+
+../ebin:
+	mkdir ../ebin
 
 ../ebin/%.beam: %.erl
 	erlc -o ../ebin $<
