@@ -4,8 +4,9 @@ A collection of utility modules for system related stuff.
 
 * *inotifywait*: a wrapper around the `inotifywait` utility.
 * *pigz*: a wrapper around parallel gzip `pigz`.
-* *checksum*: checksum over files using `md5sum`, `sha1sum` and so on..
+* *checksum*: checksum over files using `md5sum`, `sha1sum` and so on.
 * *shell_utils*: utilities for better communication with external shell.
+* *plimiter*: limiting the number of launched processes.
 
 ## Inotifywait Wrapper
 
@@ -49,3 +50,20 @@ Erlang wrapper functions around the `xxxsum` utilities family.
 
 Utility functions for communication with external (posix) shell (string escaping
 and stuff like that).
+
+## PLimiter
+
+Provides a mean to limit the number of concurrent processes, like a worker pool
+but much simpler.
+
+The module provides the following functions:
+
+* `start`: creates a process limiter with a given maximum of concurrent processes. The
+           limiter is itself implemented as a process.
+* `start_link`: creates a process limiter linked to the caller.
+* `stop`: destroys a process limiter. Only its creator can destroy a limiter. Processes
+          already waiting to be run will be run before the limiter actually stops.
+* `spawn`: spawns a new process through the given limiter. If max number of concurrent
+           processes if reached, the process will be spawned when the number of
+           processes falls back below the limit.
+* `spawn_link`: same as `spawn` but the process will be linked to the caller.
