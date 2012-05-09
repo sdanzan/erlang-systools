@@ -19,6 +19,7 @@
 -record(inotify, { event, isdir, file, watched }).
 
 %% ---------------------------------------------------------------------------
+-spec start(Monitored :: string(), Options :: list()) -> pid().
 %% @doc Start an inotifywait wrapper process.
 %%
 %%      Monitored: monitored file/directory.
@@ -33,10 +34,14 @@ start(Monitored, Options) ->
     To = self(),
     spawn_link(fun() -> start_inotify_loop(Monitored, Options, To) end).
 
+%% ---------------------------------------------------------------------------
+-spec start(Monitored :: string()) -> pid().
 %% @equiv start(Monitored, [])
 start(Monitored) -> start(Monitored, []).
 
 %% ---------------------------------------------------------------------------
+-spec start_event_manager(Name::atom(), Monitored::string(), Options::list())
+        -> ok.
 %% @doc Starts an event manager associated to an inotifywait wrapper process.
 %%      That allows use of the gen_vent behaviours to subscribe to inotifywait
 %%      generated events. The inotify wrapper is started automatically.
@@ -47,12 +52,15 @@ start(Monitored) -> start(Monitored, []).
 start_event_manager(Name, Monitored, Options) ->
     { ok, _ } = gen_event:start_link(Name),
     spawn_link(fun() -> event_manager_loop(Name, Monitored, Options) end),
-    ok.
+    ok. 
 
+%% ---------------------------------------------------------------------------
+-spec start_event_manager(Name::atom(), Monitored::string()) -> ok.
 %% @equiv start_event_manager(Name, Monitored, [])
 start_event_manager(Name, Monitored) -> start_event_manager(Name, Monitored, []).
 
 %% ---------------------------------------------------------------------------
+-spec close(InotifyWrapper :: pid()) -> ok | not_ok.
 %% @doc Close an inotify wrapper process.
 %% Should return ok if nothing went wrong. Will return not_ok
 %% if closing is not acknowledged after 1 second.
