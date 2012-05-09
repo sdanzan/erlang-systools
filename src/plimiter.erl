@@ -13,25 +13,25 @@
 -export_type([limiter/0]).
 
 %% ---------------------------------------------------------------------------
--spec start(Max :: integer()) -> Limiter :: limiter().
+-spec start(Max :: pos_integer()) -> Limiter :: limiter().
 %% @doc Start a plain process limiter.
 
 start(Max) -> starter(Max, fun spawn/1).
 
 %% ---------------------------------------------------------------------------
--spec start(Name :: atom(), Max :: integer()) -> true.
+-spec start(Name :: atom(), Max :: pos_integer()) -> true.
 %% @doc Start a plain process limiter with a given name.
 
 start(Name, Max) -> register(Name, start(Max)).
 
 %% ---------------------------------------------------------------------------
--spec start_link(Max :: integer()) -> Limiter :: limiter().
+-spec start_link(Max :: pos_integer()) -> Limiter :: limiter().
 %% @doc Start a plain process limiter linked to the creator.
 
 start_link(Max) -> starter(Max, fun spawn_link/1).
 
 %% ---------------------------------------------------------------------------
--spec start_link(Name :: atom(), Max :: integer()) -> true.
+-spec start_link(Name :: atom(), Max :: pos_integer()) -> true.
 %% @doc Start a plain process named limiter linked to the creator.
 
 start_link(Name, Max) -> register(Name, start_link(Max)).
@@ -84,7 +84,7 @@ spawn_link(Limiter, Module, Function, Args) ->
 %% ---------------------------------------------------------------------------
 
 %% ---------------------------------------------------------------------------
-starter(Max, StarterFun) ->
+starter(Max, StarterFun) when Max > 0 ->
     Self = self(),
     StarterFun(fun() -> limiter_loop(Self, Max, 0) end).
 

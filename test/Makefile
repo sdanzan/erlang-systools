@@ -10,7 +10,7 @@ all: ../ebin $(OBJECTS) test
 	erlc -o ../ebin $<
 
 test:
-	erl -noshell -pa ../ebin -eval 'eunit:test("../ebin")' -s init stop
+	erl +K true -noshell -pa ../ebin -eval 'eunit:test("../ebin")' -s init stop
 
 test-verbose:
-	erl -noshell -pa ../ebin -eval 'eunit:test("../ebin", [verbose])' -s init stop
+	erl +K true -noshell -pa ../ebin -eval 'eunit:test("../ebin", [verbose])' -s init stop
