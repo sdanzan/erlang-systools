@@ -10,6 +10,7 @@
 -export([compress/2, start_compress/2]).
 
 %% --------------------------------------------------------------------------
+-spec create_compressor(list()) -> pid().
 %% @doc Create a compressor process to wait for compression tasks.
 %%      Allowed options:
 %%              { level, Level }: compression level (default 9).
@@ -22,6 +23,8 @@ create_compressor(Options) ->
           ++ check_parallel(proplists:get_value(parallel, Options)),
     process_compression(Cmd, proplists:get_value(silent, Options, false)).
 
+%% --------------------------------------------------------------------------
+-spec create_compressor() -> pid().
 %% @equiv create_compressor([])
 create_compressor() -> create_compressor([]).
 
@@ -33,11 +36,13 @@ check_parallel(Parallel) when Parallel > 0 ->
     io_lib:format(" -p ~w ", [ Parallel ]).
 
 %% --------------------------------------------------------------------------
+-spec delete_compressor(pid()) -> ok.
 %% @doc Requires the given compressor to stop serving compression tasks.
-delete_compressor(Compressor) -> Compressor ! { self(), stop }.
+delete_compressor(Compressor) -> Compressor ! { self(), stop }, ok.
 
 %% --------------------------------------------------------------------------
-%% @doc
+-spec compress(String :: string(), Compressor :: pid()) -> string().
+%% @doc Synchronously compress a given file and return the compressed file name.
 compress(FileName, Compressor) ->
     start_compress(FileName, Compressor),
     receive
@@ -45,8 +50,13 @@ compress(FileName, Compressor) ->
     end.
 
 %% --------------------------------------------------------------------------
-%% @doc
-start_compress(FileName, Compressor) -> Compressor ! { self(), FileName }.
+-spec start_compress(String :: string(), Compressor :: pid()) -> string().
+%% @doc Send a compression request to a compressor. Once finished the
+%%      compressor will send back a message:
+%%         { Compressor, { success, CompressedFileName } }
+%%      or { Compressor, { error, Reason } }
+%% @end
+start_compress(FileName, Compressor) -> Compressor ! { self(), FileName }, ok.
 
 %% --------------------------------------------------------------------------
 
