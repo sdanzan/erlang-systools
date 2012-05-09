@@ -1,6 +1,7 @@
-all: main test
+all: src test
 
-main:
+.PHONY: src
+src:
 	@$(MAKE) --directory=src
 
 .PHONY: test
