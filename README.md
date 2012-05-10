@@ -4,7 +4,7 @@ A collection of utility modules for system related stuff.
 
 * *inotifywait*: a wrapper around the `inotifywait` utility.
 * *pigz*: a wrapper around parallel gzip `pigz`.
-* *checksum*: checksum over files using `md5sum`, `sha1sum` and so on.
+* *checksum*: checksum over files.
 * *shell_utils*: utilities for better communication with external shell.
 * *plimiter*: limiting the number of launched processes.
 
@@ -44,7 +44,8 @@ compression commands.
 
 ## Checksums
 
-Erlang wrapper functions around the `xxxsum` utilities family.
+Checksums on files (md5, sha1, sha256, sha512) implemented in Erlang and also as
+wrapper functions around the `xxxsum` utilities family.
 
 ## Shell Utils
 

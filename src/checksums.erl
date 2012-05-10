@@ -1,49 +1,100 @@
 %%% --------------------------------------------------------------------------
 %%% @author Serge Danzanvilliers <serge.danzanvilliers@gmail.com>
-%%% @doc Wrapper over the md5sum, sha1sum, sha224sum, sha256, sha384sum and
-%%%      sha512sum utilities.
+%%% @doc Compute file checksums.
+%%%      Wrappers functions over the md5sum, sha1sum, sha224sum, sha256,
+%%%      sha384sum and sha512sum utilities are available and are often
+%%%      a bit faster.
 %%% @end
 %%% --------------------------------------------------------------------------
 
 -module(checksums).
--export([md5sum/1, sha1sum/1, sha224sum/1, sha256sum/1, sha384sum/1, sha512sum/1]).
--export([emd5sum/1, emd5sum/2]).
+-export([md5sum/1, sha1sum/1, sha256sum/1, sha512sum/1]).
+-export([md5sum/2, sha1sum/2, sha256sum/2, sha512sum/2]).
 
+%% Buffer length when reading files
 -define(DEFAULT_BUFFER_LENGTH, 65536).
 
 %% --------------------------------------------------------------------------
--spec md5sum(string()) -> string().
-%% @doc MD5 digest through md5sum utility
-md5sum(FileName) -> gensum(FileName, "md5sum").
+-spec md5sum(string()) -> string() | { error, string() }.
+
+%% @doc MD5 digest on file.
+md5sum(FileName) -> md5sum(FileName, ?DEFAULT_BUFFER_LENGTH).
+
+-spec md5sum(FileName :: string(),
+             BufferLength :: integer()) -> string() | { error, string() };
+            (string(), fast) -> string() | { error, string() }.
+%% @doc MD5 digest on file.
+%%      If second parameter is 'fast', will use external 'md5sum' utility.
+%% @end
+md5sum(FileName, fast) -> fastsum(FileName, "md5sum");
+md5sum(FileName, Length) -> 
+    gensum(FileName, Length,
+           { fun crypto:md5_init/0,
+             fun crypto:md5_update/2, 
+             fun crypto:md5_final/1 }).
 
 %% --------------------------------------------------------------------------
--spec sha1sum(string()) -> string().
-%% @doc SHA1 digest through sha1sum utility
-sha1sum(FileName) -> gensum(FileName, "sha1sum").
+-spec sha1sum(string()) -> string() | { error, string() }.
+
+%% @doc SHA1 digest on file.
+sha1sum(FileName) -> sha1sum(FileName, ?DEFAULT_BUFFER_LENGTH).
+
+-spec sha1sum(FileName :: string(),
+              BufferLength :: integer()) -> string() | { error, string() };
+             (string(), fast) -> string() | { error, string() }.
+%% @doc SHA1 digest on file.
+%%      If second parameter is 'fast', will use external 'sha1sum' utility.
+%% @end
+sha1sum(FileName, fast) -> fastsum(FileName, "sha1sum");
+sha1sum(FileName, Length) -> 
+    gensum(FileName, Length,
+           { fun crypto:sha_init/0,
+             fun crypto:sha_update/2, 
+             fun crypto:sha_final/1 }).
 
 %% --------------------------------------------------------------------------
--spec sha224sum(string()) -> string().
-%% @doc SHA224 digest through sha224sum utility
-sha224sum(FileName) -> gensum(FileName, "sha224sum").
+-spec sha256sum(string()) -> string() | { error, string() }.
+
+%% @doc SHA256 digest on file.
+sha256sum(FileName) -> sha256sum(FileName, ?DEFAULT_BUFFER_LENGTH).
+
+-spec sha256sum(FileName :: string(),
+                BufferLength :: integer()) -> string() | { error, string() };
+               (string(), fast) -> string() | { error, string() }.
+%% @doc SHA256 digest on file.
+%%      If second parameter is 'fast', will use external 'sha256sum' utility.
+%% @end
+sha256sum(FileName, fast) -> fastsum(FileName, "sha256sum");
+sha256sum(FileName, Length) -> 
+    gensum(FileName, Length,
+           { fun crypto:sha256_init/0,
+             fun crypto:sha256_update/2, 
+             fun crypto:sha256_final/1 }).
 
 %% --------------------------------------------------------------------------
--spec sha256sum(string()) -> string().
-%% @doc SHA256 digest through sha256sum utility
-sha256sum(FileName) -> gensum(FileName, "sha256sum").
+-spec sha512sum(string()) -> string() | { error, string() }.
+
+%% @doc SHA512 digest on file.
+sha512sum(FileName) -> sha512sum(FileName, ?DEFAULT_BUFFER_LENGTH).
+
+-spec sha512sum(FileName :: string(),
+                BufferLength :: integer()) -> string() | { error, string() };
+               (string(), fast) -> string() | { error, string() }.
+%% @doc SHA512 digest on file.
+%%      If second parameter is 'fast', will use external 'sha512sum' utility.
+%% @end
+sha512sum(FileName, fast) -> fastsum(FileName, "sha512sum");
+sha512sum(FileName, Length) -> 
+    gensum(FileName, Length,
+           { fun crypto:sha512_init/0,
+             fun crypto:sha512_update/2, 
+             fun crypto:sha512_final/1 }).
 
 %% --------------------------------------------------------------------------
--spec sha384sum(string()) -> string().
-%% @doc SHA384 digest through sha384sum utility
-sha384sum(FileName) -> gensum(FileName, "sha384sum").
-
-%% --------------------------------------------------------------------------
--spec sha512sum(string()) -> string().
-%% @doc SHA1 digest through sha512sum utility
-sha512sum(FileName) -> gensum(FileName, "sha512sum").
 
 %% --------------------------------------------------------------------------
 %% Launch a xxxsum utility and get back the result.
-gensum(FileName, Cmd) ->
+fastsum(FileName, Cmd) ->
     FullCmd = Cmd ++ " " ++ shell_utils:quote(FileName) ++ "; echo $?",
     case string:tokens(os:cmd(FullCmd), "\n") of
         [ Output, "0" ] -> hd(string:tokens(Output, " "));
@@ -51,32 +102,30 @@ gensum(FileName, Cmd) ->
     end.
 
 %% --------------------------------------------------------------------------
--spec emd5sum(string()) -> string().
-%% @doc Compute a MD5 checksum of the given file using plain erlang.
-emd5sum(FileName) -> emd5sum(FileName, ?DEFAULT_BUFFER_LENGTH).
-
-%% --------------------------------------------------------------------------
-%% @doc Compute a MD5 checksum of the given file using plain erlang.
-%%      Use a given length for the read buffer.
-%% @end
-emd5sum(FileName, BufferLength) ->
+%% Compute a checksum of the given file using plain erlang.
+%% Use a given length for the read buffer.
+gensum(FileName, BufferLength, { FInit, FUpdate, FFinal }) ->
     { ok, File } = file:open(FileName, [ read, binary, raw ]),
-    try md5sum_loop(File, BufferLength, crypto:md5_init())
+    try gensum_loop(File, BufferLength, { FUpdate, FFinal }, FInit())
     after file:close(File) end.
 
 %% --------------------------------------------------------------------------
-%% MD5 checksum computation loop.
-md5sum_loop(File, BufferLength, Md5Context) ->
+%% Checksum computation loop.
+gensum_loop(File, BufferLength, { FUpdate, FFinal }, Context) ->
     case file:read(File, BufferLength) of
-        { ok, Data } -> md5sum_loop(File,
+        { ok, Data } -> gensum_loop(File,
                                     BufferLength,
-                                    crypto:md5_update(Md5Context, Data));
-        eof -> { ok, to_hex(crypto:md5_final(Md5Context)) };
+                                    { FUpdate, FFinal },
+                                    FUpdate(Context, Data));
+        eof -> to_hex(FFinal(Context));
         { error, _ } = Error -> Error
     end.
 
 %% --------------------------------------------------------------------------
 %% Format output to hexa.
-to_hex(<<N:128/big-unsigned-integer>>) ->
-    lists:flatten(io_lib:format("~32.16.0b", [ N ])).
+to_hex(BitsString) ->
+    Size = bit_size(BitsString),
+    <<N:Size/big-unsigned-integer>> = BitsString,
+    Format = "~" ++ integer_to_list(Size div 4) ++ ".16.0b",
+    lists:flatten(io_lib:format(Format, [ N ])).
 
