@@ -1,9 +1,8 @@
 %%% --------------------------------------------------------------------------
 %%% @author Serge Danzanvilliers <serge.danzanvilliers@gmail.com>
 %%% @doc Compute file checksums.
-%%%      Wrappers functions over the md5sum, sha1sum, sha224sum, sha256,
-%%%      sha384sum and sha512sum utilities are available and are often
-%%%      a bit faster.
+%%%      Wrappers functions over the md5sum, sha1sum, sha256, and sha512sum 
+%%%      utilities are available and may be a bit faster.
 %%% @end
 %%% --------------------------------------------------------------------------
 
@@ -105,7 +104,7 @@ fastsum(FileName, Cmd) ->
 %% Compute a checksum of the given file using plain erlang.
 %% Use a given length for the read buffer.
 gensum(FileName, BufferLength, { FInit, FUpdate, FFinal }) ->
-    { ok, File } = file:open(FileName, [ read, binary, raw ]),
+    { ok, File } = file:open(FileName, [ read, binary, raw, { read_ahead, BufferLength * 2 } ]),
     try gensum_loop(File, BufferLength, { FUpdate, FFinal }, FInit())
     after file:close(File) end.
 
