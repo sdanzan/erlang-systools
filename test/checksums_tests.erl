@@ -22,12 +22,12 @@ checksums_test_() ->
                                     checksums:sha1sum(?TEST_FILE, binary)) }
 %        , { "sha224", ?_assertEqual(?TEST_SHA224, checksums:sha224sum(?TEST_FILE)) }
         , { "sha256", ?_assertEqual(?TEST_SHA256, checksums:sha256sum(?TEST_FILE)) }
-        , { "sha256", ?_assertEqual(?TEST_SHA256, checksums:sha256sum(?TEST_FILE, fast)) }
+%        , { "sha256", ?_assertEqual(?TEST_SHA256, checksums:sha256sum(?TEST_FILE, fast)) }
         , { "sha256", ?_assertEqual(begin D = list_to_integer(?TEST_SHA256, 16), <<D:256>> end,
                                     checksums:sha256sum(?TEST_FILE, binary)) }
 %        , { "sha384", ?_assertEqual(?TEST_SHA384, checksums:sha384sum(?TEST_FILE)) }
         , { "sha512", ?_assertEqual(?TEST_SHA512, checksums:sha512sum(?TEST_FILE)) }
-        , { "sha512", ?_assertEqual(?TEST_SHA512, checksums:sha512sum(?TEST_FILE, fast)) }
+%        , { "sha512", ?_assertEqual(?TEST_SHA512, checksums:sha512sum(?TEST_FILE, fast)) }
         , { "sha512", ?_assertEqual(begin D = list_to_integer(?TEST_SHA512, 16), <<D:512>> end,
                                     checksums:sha512sum(?TEST_FILE, binary)) }
     ].
